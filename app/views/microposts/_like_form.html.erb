@@ -1,0 +1,5 @@
+ <% if @post.likings?(@user)%>
+    <%= render 'microposts/unlike', :@post => @post %>
+  <% else %>
+    <%= render 'microposts/like', :@post => @post %>
+  <% end %>

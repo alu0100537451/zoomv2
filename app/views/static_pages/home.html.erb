@@ -1,0 +1,50 @@
+<% if logged_in? %>
+  <div class="row">
+    <aside class="col-md-4">
+      <section class="user_info">
+        <%= render 'shared/user_info' %>
+      </section>
+      <section class="stats">
+        <%= render 'shared/stats' %>
+      </section>
+      <section class="micropost_form">
+        <%= render 'shared/micropost_form' %>
+      </section>
+    </aside>
+    <div class="col-md-8">
+      <h3>Micropost Feed</h3>
+      <%= render 'shared/feed' %>
+    </div>
+  </div>
+<% else %>
+
+<div class="span8 welcome-image">
+        <div id="myCarousel"
+        class="carousel slide">
+        <!-- Carousel items -->
+        <div class="carousel-inner">
+                <div class="active item">
+                        <a href="/users/sign_up"><img src="http://oi60.tinypic.com/2lkb7yv.jpg"> </a>
+                </div>
+                <div class="item">
+                        <a href="/users/sign_up"><img src="http://marktyrrell.com/labs/blueberry/img/slide2.jpg"> </a>
+                </div>
+                <div class="item">
+                        <a href="/users/sign_up"><img src="http://marktyrrell.com/labs/blueberry/img/slide3.jpg"> </a>
+                </div>
+                <div class="item">
+                        <a href="/users/sign_up"><img src="http://marktyrrell.com/labs/blueberry/img/slide4.jpg"> </a>
+                </div>
+        </div>
+        <!-- Carousel nav -->
+        <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+        <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+</div>
+<div class="center jumbotron">
+  <%= link_to "Inicia Sesión", signup_path, class: "btn btn-lg btn-primary" %>
+  <%= link_to "Inicia Sesión con tu Facebook", "/auth/facebook",class: "btn btn-lg btn-primary", id: "sign_in" %>
+<br>
+</div>
+
+
+<% end %>

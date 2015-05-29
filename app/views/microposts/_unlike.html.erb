@@ -1,0 +1,4 @@
+<%= form_for(@post.active_relationlikes.find_by(liker_id: @user.id),
+             html: { method: :delete }) do |f| %>
+  <%= f.submit "Ya no me gusta", class: "btn" %>
+<% end %>

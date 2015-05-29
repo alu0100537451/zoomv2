@@ -1,0 +1,20 @@
+language: ruby
+bundler_args: --without production # Para que sync Gemfile.lock en Travis
+rvm:
+  # - 1.9.3
+  - 2.2.0
+env:
+  #- RAILS_VERSION='->3.2.12'
+  - RAILS_VERSION='->4.2.0'
+  - DB=sqlite
+script:
+  # - bundle update && bundle install # Eliminado, lo hace por defecto Travis
+  - bundle exec rake db:migrate
+  - bundle exec rake db:test:prepare
+  - bundle exec rake test
+  # - bundle exec rake tests
+branches:
+  only:
+    - master
+    - release
+
